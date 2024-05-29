@@ -26,6 +26,11 @@ def contact():
 @app.route("/contact/complete", methods=["GET", "POST"])
 def contact_complete():
     if request.method == "POST":
+        # form의 속성을 활용해 폼의 값을 취득한다.
+        username = request.form["username"]
+        email = request.form["email"]
+        description = request.form["decription"]
+
         # 이메일을 보낸다. 나중에 구현
 
         # contact 엔드포인트로 리다이렉트 함.
