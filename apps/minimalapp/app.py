@@ -1,4 +1,6 @@
+import logging
 from email_validator import validate_email, EmailNotValidError
+from flask_debugtoolbar import DebugToolbarExtension
 from flask import (
     Flask,
     render_template,
@@ -13,6 +15,10 @@ from flask import (
 app = Flask(__name__)
 
 app.config["SECRET_KEY"] = "1234qwer"
+app.logger.setLevel(logging.DEBUG)
+app.config["DEBUG_TB_INTERCEPT_REDIRECTS"] = False
+
+toolbar = DebugToolbarExtension(app)
 
 
 @app.route("/")
