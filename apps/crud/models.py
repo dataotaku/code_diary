@@ -14,7 +14,7 @@ class User(db.Model):
     email = db.Column(db.String, unique=True, index=True)
     password_hash = db.Column(db.String)
     created_at = db.Column(db.DateTime, default=datetime.now)
-    updated_at = db.Column(db.Datetime, default=datetime.now, onupdate=datetime.now)
+    updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     # 비밀번호를 설정하기 위한 프로퍼티
     @property
